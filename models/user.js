@@ -9,13 +9,15 @@ var userSchema = new Schema({
     password: {type: String, required: true},
     email: {type: String, required: true, unique: true},
     description: {type: String},
-    attributes: {
+    attributes:
+    {
         height: {type: String},
         weight: {type: String},
         gender: {type: String},
         age: {type: String}
     },
-    publications: [{
+    publications:
+        [{
         title: {type: String},
         date: {type: Date},
         content: {type: String}
@@ -23,8 +25,11 @@ var userSchema = new Schema({
     diets: [{
         title: {type: String},
         description: {type: String},
-        days: [{
+        days:
+            [{
+            title: {type: String},
             meals: [{
+                title: {type: String},
                 submeal: [{
                     title: {type: String},
                     description: {type: String},
