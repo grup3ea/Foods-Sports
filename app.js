@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '/public'));
 
 /*Conexión a la base de datos de MongoDB que tenemos en local*/
 require('mongoose-middleware').initialize(mongoose);
-mongoose.connect('mongodb://localhost/foodsport', function(err, res) {
+mongoose.connect('mongodb://localhost/foodsports', function(err, res) {
     if (err) throw err;
     console.log('Conectado con éxito a la Base de Datos');
 });

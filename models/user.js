@@ -47,7 +47,7 @@ var userSchema = new Schema({
                 }]
             }]
         }]
-    }],
+    }]  ,
     coaching: [{
         coachid: {type: String},
         routines: [{

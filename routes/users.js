@@ -6,11 +6,12 @@ var User = require('../models/user.js');
 //GET - GET All Users By Into DB
 router.get('/allusers', function (req, res) {
     console.log('GET /allusers');
-    var recibido = req.body;
-    console.log(recibido);
+/*    var recibido = req.body;
+    console.log(recibido);*/
     User.find(function (err, users) {
         if (err) res.send(500, err.message);
         console.log(users);
+        res.status(200).jsonp(users);
         console.log('\n');
     });
 
