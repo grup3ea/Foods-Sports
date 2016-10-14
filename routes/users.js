@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user.js');
-var LocalStorage = require('node-localstorage').LocalStorage;
-localStorage = new LocalStorage('./scratch');
+
 
 //GET - GET All Users By Into DB
-router.post('/allusers', function (req, res) {
+router.get('/allusers', function (req, res) {
     console.log('GET /allusers');
     var recibido = req.body;
     console.log(recibido);
@@ -68,3 +67,4 @@ router.post('/login', function (req, res) {
         }
     });
 });
+module.exports = router;

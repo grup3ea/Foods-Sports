@@ -6,6 +6,8 @@ var io = require('socket.io');              /*Comunicación entre Master y Slave
 /*Inicio Express*/
 var app = express();
 var server = require('http').Server(app);
+var users = require('./routes/users');
+app.use('/server', users);
 
 /*Middlewares express*/
 app.use(bodyParser.json());
