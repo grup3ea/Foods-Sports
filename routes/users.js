@@ -4,8 +4,8 @@ var User = require('../models/user.js');
 
 
 //GET - GET All Users By Into DB
-router.get('/allusers', function (req, res) {
-    console.log('GET /allusers');
+router.get('/users', function (req, res) {
+    console.log('GET list of all users');
 /*    var recibido = req.body;
     console.log(recibido);*/
     User.find(function (err, users) {
@@ -18,8 +18,8 @@ router.get('/allusers', function (req, res) {
 });
 
 //POST - Add User in DB
-router.post('/adduser', function (req, res) {
-    console.log('POST /user');
+router.post('/users/register', function (req, res) {
+    console.log('Register User');
     console.log(req.body);
     var user = new User({
         nombre: req.body.nombre,
@@ -37,7 +37,7 @@ router.post('/adduser', function (req, res) {
 });
 
 //POST - Comprovar user en DB
-router.post('/login', function (req, res) {
+router.post('/users/login', function (req, res) {
 
     console.log('LOGIN /user');
     console.log("Comprueba si la contraseña es correcta");

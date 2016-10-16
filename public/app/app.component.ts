@@ -1,7 +1,18 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>Testing</h1>'
+    templateUrl: 'app.component.html'
 })
-export class AppComponent { }
+export class AppComponent {
+
+    title = "Food Sports";
+    login = {name: "", password: ""};
+
+    onLoginClicked() {
+
+        alert("name : " + this.login.name + " - password : " + this.login.password);
+    }
+}
+
+
