@@ -9,23 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var user_service_1 = require('../user/user.service');
-var Register = (function () {
-    function Register(userService) {
-        this.userService = userService;
-        this.user = { name: "", password: "" };
+var Home = (function () {
+    function Home() {
     }
-    Register.prototype.onRegisterClicked = function () {
-        this.userService.register(this.user).subscribe(function (x) { return console.log(x); }, function (err) { return console.log(err); });
-    };
-    Register = __decorate([
+    Home = __decorate([
         core_1.Component({
-            selector: 'register',
-            templateUrl: 'register.component.html'
+            selector: 'landing',
+            template: 'Where it all begins'
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService])
-    ], Register);
-    return Register;
+        __metadata('design:paramtypes', [])
+    ], Home);
+    return Home;
 }());
-exports.Register = Register;
-//# sourceMappingURL=register.component.js.map
+exports.Home = Home;
+//# sourceMappingURL=home.component.js.map
