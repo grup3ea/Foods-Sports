@@ -16,14 +16,79 @@
         {
           "title": "Titulo informativo",
           "date": "20 Octubre 2016",
-          "content": "This might be interesting",
-          "diets": [
+          "content": "This might be interesting"
+        }
+      ],
+      "diets": [
+        {
+          "title": "Vegano",
+          "description": "Para los Veganos",
+          "days": [
             {
-              "title": "Vegano",
-              "description": "Para los Veganos",
-              "days": [
+              "title": "Lunes",
+              "meals": [
                 {
-                  "title": "Lunes",
+                  "title": "Desayuno",
+                  "submeal": [
+                    {
+                      "title": "Huevos",
+                      "description": "Hervidos",
+                      "amount": {
+                        "unit": "piece",
+                        "quantity": "2"
+                      },
+                      "nutritional": {
+                        "kcal": "400",
+                        "proteins": "18g",
+                        "carbohidrates": "23g",
+                        "fats": "3g",
+                        "vitamins": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "Comida",
+                  "submeal": [
+                    {
+                      "title": "Huevos",
+                      "description": "Hervidos",
+                      "amount": {
+                        "unit": "piece",
+                        "quantity": "2"
+                      },
+                      "nutritional": {
+                        "kcal": "400",
+                        "proteins": "18g",
+                        "carbohidrates": "23g",
+                        "fats": "3g",
+                        "vitamins": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "Cena",
+                  "submeal": [
+                    {
+                      "title": "Huevos",
+                      "description": "Hervidos",
+                      "amount": {
+                        "unit": "piece",
+                        "quantity": "2"
+                      },
+                      "nutritional": {
+                        "kcal": "400",
+                        "proteins": "18g",
+                        "carbohidrates": "23g",
+                        "fats": "3g",
+                        "vitamins": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "Martes",
                   "meals": [
                     {
                       "title": "Desayuno",
@@ -86,7 +151,7 @@
                       ]
                     },
                     {
-                      "title": "Martes",
+                      "title": "Miercoles",
                       "meals": [
                         {
                           "title": "Desayuno",
@@ -147,71 +212,6 @@
                               }
                             }
                           ]
-                        },
-                        {
-                          "title": "Miercoles",
-                          "meals": [
-                            {
-                              "title": "Desayuno",
-                              "submeal": [
-                                {
-                                  "title": "Huevos",
-                                  "description": "Hervidos",
-                                  "amount": {
-                                    "unit": "piece",
-                                    "quantity": "2"
-                                  },
-                                  "nutritional": {
-                                    "kcal": "400",
-                                    "proteins": "18g",
-                                    "carbohidrates": "23g",
-                                    "fats": "3g",
-                                    "vitamins": ""
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "title": "Comida",
-                              "submeal": [
-                                {
-                                  "title": "Huevos",
-                                  "description": "Hervidos",
-                                  "amount": {
-                                    "unit": "piece",
-                                    "quantity": "2"
-                                  },
-                                  "nutritional": {
-                                    "kcal": "400",
-                                    "proteins": "18g",
-                                    "carbohidrates": "23g",
-                                    "fats": "3g",
-                                    "vitamins": ""
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "title": "Cena",
-                              "submeal": [
-                                {
-                                  "title": "Huevos",
-                                  "description": "Hervidos",
-                                  "amount": {
-                                    "unit": "piece",
-                                    "quantity": "2"
-                                  },
-                                  "nutritional": {
-                                    "kcal": "400",
-                                    "proteins": "18g",
-                                    "carbohidrates": "23g",
-                                    "fats": "3g",
-                                    "vitamins": ""
-                                  }
-                                }
-                              ]
-                            }
-                          ]
                         }
                       ]
                     }
@@ -219,158 +219,158 @@
                 }
               ]
             }
-          ],
-          "coaching": [
+          ]
+        }
+      ],
+      "coaching": [
+        {
+          "coachid": "id",
+          "routines": [
             {
-              "coachid": "id",
-              "routines": [
+              "title": "Lose Weight",
+              "description": "Fat Burner",
+              "days": [
                 {
-                  "title": "Lose Weight",
-                  "description": "Fat Burner",
-                  "days": [
+                  "title": "Monday",
+                  "exercises": [
                     {
-                      "title": "Monday",
-                      "exercises": [
-                        {
-                          "name": "Run",
-                          "description": "Run at moderate peace",
-                          "img": "../images/runing",
-                          "weight": "",
-                          "distance": "1000m",
-                          "reps": "1",
-                          "series": 1
-                        },
-                        {
-                          "name": "Jump",
-                          "description": "Jump with two feet at the same time",
-                          "img": "../images/jumping",
-                          "weight": "",
-                          "distance": "1000m",
-                          "reps": "1",
-                          "series": 1
-                        }
-                      ]
+                      "name": "Run",
+                      "description": "Run at moderate peace",
+                      "img": "../images/runing",
+                      "weight": "",
+                      "distance": "1000m",
+                      "reps": "1",
+                      "series": 1
                     },
                     {
-                      "title": "Wednesday",
-                      "exercises": [
-                        {
-                          "name": "Run",
-                          "description": "Run at moderate peace",
-                          "img": "../images/runing",
-                          "weight": "",
-                          "distance": "1000m",
-                          "reps": "1",
-                          "series": 1
-                        },
-                        {
-                          "name": "Jump",
-                          "description": "Jump with two feet at the same time",
-                          "img": "../images/jumping",
-                          "weight": "",
-                          "distance": "1000m",
-                          "reps": "1",
-                          "series": 1
-                        }
-                      ]
-                    },
-                    {
-                      "title": "Friday",
-                      "exercises": [
-                        {
-                          "name": "Run",
-                          "description": "Run at moderate peace",
-                          "img": "../images/runing",
-                          "weight": "",
-                          "distance": "1000m",
-                          "reps": "1",
-                          "series": 1
-                        },
-                        {
-                          "name": "Jump",
-                          "description": "Jump with two feet at the same time",
-                          "img": "../images/jumping",
-                          "weight": "",
-                          "distance": "1000m",
-                          "reps": "1",
-                          "series": 1
-                        }
-                      ]
+                      "name": "Jump",
+                      "description": "Jump with two feet at the same time",
+                      "img": "../images/jumping",
+                      "weight": "",
+                      "distance": "1000m",
+                      "reps": "1",
+                      "series": 1
                     }
                   ]
                 },
                 {
-                  "title": "Gain Mass",
-                  "description": "Get bigger",
-                  "days": [
+                  "title": "Wednesday",
+                  "exercises": [
                     {
-                      "title": "Monday",
-                      "exercises": [
-                        {
-                          "name": "Back Squat",
-                          "description": "Back Squatting",
-                          "img": "../images/backsquat",
-                          "weight": "70% BW",
-                          "distance": "",
-                          "reps": "3",
-                          "series": 5
-                        },
-                        {
-                          "name": "Jump",
-                          "description": "Jump with two feet at the same time",
-                          "img": "../images/jumping",
-                          "weight": "",
-                          "distance": "1000m",
-                          "reps": "1",
-                          "series": 1
-                        }
-                      ]
+                      "name": "Run",
+                      "description": "Run at moderate peace",
+                      "img": "../images/runing",
+                      "weight": "",
+                      "distance": "1000m",
+                      "reps": "1",
+                      "series": 1
                     },
                     {
-                      "title": "Wednesday",
-                      "exercises": [
-                        {
-                          "name": "Run",
-                          "description": "Run at moderate peace",
-                          "img": "../images/runing",
-                          "weight": "",
-                          "distance": "1000m",
-                          "reps": "1",
-                          "series": 1
-                        },
-                        {
-                          "name": "Jump",
-                          "description": "Jump with two feet at the same time",
-                          "img": "../images/jumping",
-                          "weight": "",
-                          "distance": "1000m",
-                          "reps": "1",
-                          "series": 1
-                        }
-                      ]
+                      "name": "Jump",
+                      "description": "Jump with two feet at the same time",
+                      "img": "../images/jumping",
+                      "weight": "",
+                      "distance": "1000m",
+                      "reps": "1",
+                      "series": 1
+                    }
+                  ]
+                },
+                {
+                  "title": "Friday",
+                  "exercises": [
+                    {
+                      "name": "Run",
+                      "description": "Run at moderate peace",
+                      "img": "../images/runing",
+                      "weight": "",
+                      "distance": "1000m",
+                      "reps": "1",
+                      "series": 1
                     },
                     {
-                      "title": "Friday",
-                      "exercises": [
-                        {
-                          "name": "Run",
-                          "description": "Run at moderate peace",
-                          "img": "../images/runing",
-                          "weight": "",
-                          "distance": "1000m",
-                          "reps": "1",
-                          "series": 1
-                        },
-                        {
-                          "name": "Jump",
-                          "description": "Jump with two feet at the same time",
-                          "img": "../images/jumping",
-                          "weight": "",
-                          "distance": "1000m",
-                          "reps": "1",
-                          "series": 1
-                        }
-                      ]
+                      "name": "Jump",
+                      "description": "Jump with two feet at the same time",
+                      "img": "../images/jumping",
+                      "weight": "",
+                      "distance": "1000m",
+                      "reps": "1",
+                      "series": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Gain Mass",
+              "description": "Get bigger",
+              "days": [
+                {
+                  "title": "Monday",
+                  "exercises": [
+                    {
+                      "name": "Back Squat",
+                      "description": "Back Squatting",
+                      "img": "../images/backsquat",
+                      "weight": "70% BW",
+                      "distance": "",
+                      "reps": "3",
+                      "series": 5
+                    },
+                    {
+                      "name": "Jump",
+                      "description": "Jump with two feet at the same time",
+                      "img": "../images/jumping",
+                      "weight": "",
+                      "distance": "1000m",
+                      "reps": "1",
+                      "series": 1
+                    }
+                  ]
+                },
+                {
+                  "title": "Wednesday",
+                  "exercises": [
+                    {
+                      "name": "Run",
+                      "description": "Run at moderate peace",
+                      "img": "../images/runing",
+                      "weight": "",
+                      "distance": "1000m",
+                      "reps": "1",
+                      "series": 1
+                    },
+                    {
+                      "name": "Jump",
+                      "description": "Jump with two feet at the same time",
+                      "img": "../images/jumping",
+                      "weight": "",
+                      "distance": "1000m",
+                      "reps": "1",
+                      "series": 1
+                    }
+                  ]
+                },
+                {
+                  "title": "Friday",
+                  "exercises": [
+                    {
+                      "name": "Run",
+                      "description": "Run at moderate peace",
+                      "img": "../images/runing",
+                      "weight": "",
+                      "distance": "1000m",
+                      "reps": "1",
+                      "series": 1
+                    },
+                    {
+                      "name": "Jump",
+                      "description": "Jump with two feet at the same time",
+                      "img": "../images/jumping",
+                      "weight": "",
+                      "distance": "1000m",
+                      "reps": "1",
+                      "series": 1
                     }
                   ]
                 }
