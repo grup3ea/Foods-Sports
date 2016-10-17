@@ -9,6 +9,11 @@ var server = require('http').Server(app);
 var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var config = require('./config'); // get our config file
 
+//var passport = require('passport');
+
+//require('./models/user');
+//require('./passport')(passport);
+
 
 /*Middlewares express*/
 app.use(bodyParser.json());
@@ -52,3 +57,42 @@ app.set('superSecret', config.secret);
 server.listen(config.port, function() {
     console.log("Servidor en http://localhost:" + config.port);
 });
+
+
+
+/* CAS REGISTRO Y AUTORIZACIÓN DE USUARIOS EN NODE.JS CON TWITTER Y FACEBOOK */
+
+/* app.use(express.cookieParser());
+app.use(express.urlencoded());
+app.use(express.json());
+app.use(express.methodOverride());
+app.use(express.session({ secret: 'secretkey' }));
+
+// Configuración de Express
+app.use(passport.initialize());
+app.use(passport.session());
+...
+// Rutas de Passport
+app.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/');
+});
+app.get('/auth/twitter', passport.authenticate('twitter'));
+app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/auth/twitter/callback', passport.authenticate('twitter',
+  { successRedirect: '/', 
+    failureRedirect: '/login' }));
+app.get('/auth/facebook/callback', passport.authenticate('facebook',
+  { successRedirect: '/', 
+    failureRedirect: '/login' }));
+...
+
+exports.index = function(req, res){
+  res.render('index', { 
+    title: 'Passport-Example',
+    user: req.user
+  });
+}; */
+
+
+
