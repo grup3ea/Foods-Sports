@@ -1,11 +1,11 @@
 {
-  "name": "Julio Iglesias",
+  "name": "User2 Iglesias",
   "role": "Client",
   "password": "Hash SHA2",
   "token": "",
-  "email": "Julio@Iglesias.cat",
+  "email": "User2@Iglesias.cat",
   "description": "Es un tio honrado",
-  "avatar": "pig",
+  "avatar": "toucan",
   "attributes": {
     "height": "2m",
     "weight": "100kg",
