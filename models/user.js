@@ -7,8 +7,10 @@ var userSchema = new Schema({
     name: {type: String, required: true},
     role: {type: String, required: true},
     password: {type: String, required: true},
+    token: { type: String },
     email: {type: String, required: true, unique: true},
     description: {type: String},
+    avatar: { type: String },
     attributes:
     {
         height: {type: String},

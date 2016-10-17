@@ -1,18 +1,24 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
 var User = require('../models/user.js');
 
 
+var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
+var config = require('../config'); // get our config file
+app.set('superSecret', config.secret); // secret variable
+
+
 //GET - GET All Users By Into DB
 router.get('/users', function (req, res) {
-    console.log('GET list of all users');
+    //console.log('GET list of all users');
 /*    var recibido = req.body;
     console.log(recibido);*/
     User.find(function (err, users) {
         if (err) res.send(500, err.message);
-        console.log(users);
+        //console.log(users);
         res.status(200).jsonp(users);
-        console.log('\n');
+        //console.log('\n');
     });
 
 });
@@ -22,16 +28,18 @@ router.post('/users/register', function (req, res) {
     console.log('Register User');
     console.log(req.body);
     var user = new User({
-        nombre: req.body.nombre,
+        name: req.body.name,
         email: req.body.email,
-        rol: req.body.rol,
-        password: req.body.password
+        role: req.body.role,
+        password: req.body.password,
+        description: req.body.description,
+        avatar: req.body.avatar
     });
-    console.log('\n');
+    //console.log('\n');
     console.log("Devuelve el user registrado");
     user.save(function (err, user) {
         if (err) return res.status(500).send(err.message);
-        console.log(user);
+        //console.log(user);
         res.status(200).jsonp(user);
     });
 });
@@ -39,33 +47,51 @@ router.post('/users/register', function (req, res) {
 //POST - Comprovar user en DB
 router.post('/users/login', function (req, res) {
 
-    console.log('LOGIN /user');
-    console.log("Comprueba si la contraseña es correcta");
+  // find the user
+    User.findOne({
+      username: req.body.name
+    }, function(err, user) {
 
-    User.findOne({email: req.body.email}, function (err, user) {
-        if (err) res.send(500, err.message);
+      if (err) throw err;
 
-        else if (user == null) {
-            console.log("No existe el usuario");
-            return res.status(404).jsonp({"loginSuccessful": false, "email": req.body.email});
+      if (!user) {
+        res.json({ success: false, message: 'Authentication failed. User not found.' });
+      } else if (user) {
+
+  			//req.body.password=md5(req.body.password);
+
+        // check if password matches
+        if (user.password != req.body.password) {
+          res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+        } else {
+
+          // if user is found and password is right
+          // create a token
+          var token = jwt.sign(user, app.get('superSecret'), {
+            //expiresInMinutes: 1440 // expires in 24 hours
+  		  //expiresIn: '60m'
+          });
+  				user.token=token;
+  				user.save(function(err, user) {
+  					if(err) return res.send(500, err.message);
+  					//res.status(200).jsonp(travel);
+  					console.log(user);
+  	        // return the information including token as JSON
+  					user.password="";
+  	        res.json({
+  	          success: true,
+  	          message: 'Enjoy your token!',
+  	          token: token,
+  					  avatar: user.avatar,
+  					  userid: user._id,
+  						userdata: user
+  	        });
+  				});
+
         }
-        else {
-            console.log(user);
-            var usuario = JSON.stringify(user);
-            var trozos = usuario.split(",");
-            var password = trozos[4].split(":");
-            var pwd2 = password[1];
-            var pwd1 = JSON.stringify(req.body.password);
-            console.log("Password del login: " + pwd2);
-            if (pwd1 == pwd2) {
-                console.log("Login Correcto");
-                return res.status(200).jsonp({"loginSuccessful": true, "user": user});
-            }
-            else {
-                console.log("Contraseña erronea");
-                return res.status(404).jsonp({"loginSuccessful": false, "email": req.body.email});
-            }
-        }
+
+      }
+
     });
 });
 module.exports = router;
