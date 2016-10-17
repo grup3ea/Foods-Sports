@@ -18,3 +18,11 @@ Then run app.js and the server will start, connect to the Database and display t
 
 ##Style Guide
 https://github.com/felixge/node-style-guide
+
+
+
+
+##importar json
+a la carpeta /data
+mongoimport --db foodsports --collection users --drop < users.json
+mongoimport --db foodsports --collection users < users2.json
