@@ -49,7 +49,7 @@ router.post('/users/login', function (req, res) {
 
   // find the user
     User.findOne({
-      username: req.body.name
+      name: req.body.name
     }, function(err, user) {
 
       if (err) throw err;
@@ -61,6 +61,8 @@ router.post('/users/login', function (req, res) {
   			//req.body.password=md5(req.body.password);
 
         // check if password matches
+        console.log(user.password);
+        console.log(req.body.password);
         if (user.password != req.body.password) {
           res.json({ success: false, message: 'Authentication failed. Wrong password.' });
         } else {

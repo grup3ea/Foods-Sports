@@ -14,5 +14,3 @@ export class AppComponent {
         alert("name : " + this.login.name + " - password : " + this.login.password);
     }
 }
-
-
