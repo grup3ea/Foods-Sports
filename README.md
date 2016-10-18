@@ -26,8 +26,8 @@ https://github.com/felixge/node-style-guide
 
 
 
-##importar json
-a la carpeta /data
+##To locally import test data into MongoDB
+On folder /data
 
  - mongoimport --db foodsports --collection users --drop < users.json
  - mongoimport --db foodsports --collection users --drop < users2.json
