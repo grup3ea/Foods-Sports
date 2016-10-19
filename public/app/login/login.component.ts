@@ -3,7 +3,7 @@ import { UserService } from '../user/user.service';
 
 @Component({
     selector: 'login',
-    templateUrl: 'login.component.html'
+    templateUrl: '/app/login/login.component.html'
 })
 export class Login {
 

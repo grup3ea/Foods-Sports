@@ -21,7 +21,7 @@ var Register = (function () {
     Register = __decorate([
         core_1.Component({
             selector: 'register',
-            templateUrl: 'register.component.html'
+            templateUrl: '/app/register/register.component.html'
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService])
     ], Register);

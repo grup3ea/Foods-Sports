@@ -3,7 +3,7 @@ import { UserService } from '../user/user.service';
 
 @Component({
     selector: 'register',
-    templateUrl: 'register.component.html'
+    templateUrl: '/app/register/register.component.html'
 })
 export class Register {
 
