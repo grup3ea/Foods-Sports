@@ -5,7 +5,7 @@ import { Register } from './register/register.component';
 import { Dashboard } from './dashboard/dashboard.component';
 import { ModuleWithProviders } from "@angular/core";
 
-import { UserComponent } from './user/user.component'
+import { UserComponent } from './shared/services/user/user.component'
 
 const appRoutes: Routes = [
 

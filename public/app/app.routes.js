@@ -3,7 +3,7 @@ var router_1 = require('@angular/router');
 var login_component_1 = require('./login/login.component');
 var register_component_1 = require('./register/register.component');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
-var user_component_1 = require('./user/user.component');
+var user_component_1 = require('./shared/services/user/user.component');
 var appRoutes = [
     {
         path: 'users',
