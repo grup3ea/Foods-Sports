@@ -1,17 +1,22 @@
 import {Injectable} from '@angular/core';
-import {Headers, Http, RequestOptions} from '@angular/http';
+import {Http, Headers, Response, RequestOptions} from '@angular/http';
 import {Router} from '@angular/router';
+import { CoolLocalStorage } from 'angular2-cool-storage';
 
 import {User} from './user';
 
 import '../rxjs-operators';
+import {Observable} from "rxjs";
 
 @Injectable()
 export class UserService {
 
-    private usersUrl = 'http://localhost:3006/server/users/';  // URL to web api
-
-    //private headers = new Headers({'Content-Type': 'application/json'});
+    user:User = null;
+    constructor(private http:Http,
+                private router:Router,
+                private localStorage:CoolLocalStorage){
+        this.user = this.localStorage.getObject('user');
+    }
 
     constructor(private http: Http, private router: Router) {}
 
@@ -20,16 +25,27 @@ export class UserService {
         return Promise.reject(error.message || error);
     }
 
-    getUsers(): Promise<User[]> {
-        return this.http.get(this.usersUrl)
-            .toPromise()
-            .then(response => response.json().data as User[])
-            .catch(this.handleError);
+    getUsers(search:string){
+        const headers = this.getHeadersDefault();
+        return this.http.get('http://localhost:3006/server/users', {headers:headers}).map(
+            (data:Response) => data.json()
+        ).catch(this.handleError);
+
     }
 
-    getUser(id: number): Promise<User> {
-        return this.getUsers()
-            .then(users => users.find(user => user.id === id));
+    getUser(userid:string){
+        const headers = this.getHeadersDefault();
+        return this.http.get('http://localhost:3006/server/users' + userid, {headers:headers}).map(
+            (data:Response) => data.json()
+        )
+    }
+
+    getHeadersDefault():Headers{
+        const headers = new Headers();
+        if(this.user){
+            headers.append('Authorization', 'TOKEN ' + this.user.token);
+        }
+        return headers;
     }
 
     register(user) {
@@ -40,21 +56,39 @@ export class UserService {
             .map(response => response.json())
     }
 
-    login(user) {
-        let headers = new Headers({'Content-Type': 'application/json'});
-        let options = new RequestOptions({headers: headers, withCredentials: true});
-        return this.http.post('http://localhost:3006/server/users/login',
-            JSON.stringify({name: user.name, password: user.password}), options)
-            .map(response => {
-                var respJson = response.json();
-                if (respJson.status && respJson.status === 'S') {
-                    this.loginSuccess;
-                }
-                return respJson;
-            });
+    login(user: User) {
+        const body = JSON.stringify({username: user.name, password: user.password});
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        return this.http.post('http://localhost:3006/server/users/login', body, {headers: headers}).map(
+            (data: Response) => {
+                let user = data.json();
+                this.user = user.user;
+                this.user.token = user.token;
+                this.localStorage.setObject('user', this.user);
+                return true;
+            }
+        ).catch(this.handleError);
     }
 
-    private loginSuccess() {
-        this.router.navigateByUrl('dashboard');
+    isLogin(){
+        if(this.user === null) return false;
+        else return true;
+    }
+
+    logout() {
+        this.user = null;
+        this.localStorage.clear();
+        this.router.navigate(['']);
+    }
+
+    getUserLogin(){
+        return this.user;
+    }
+
+    private handleError(error:any){
+        console.log(error);
+        return Observable.throw(error.json());
     }
 }

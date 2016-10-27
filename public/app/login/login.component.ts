@@ -1,28 +1,34 @@
-import { Component } from '@angular/core';
-import { UserService } from '../user/user.service';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
+import {UserService} from "../user/user.service";
+
+/**
+ *	This class represents the lazy loaded LoginComponent.
+ */
 
 @Component({
-    selector: 'login',
-    templateUrl: '/app/login/login.component.html'
+    moduleId: module.id,
+    selector: 'login-cmp',
+    templateUrl: 'login.component.html'
 })
-export class Login {
 
-    constructor(private userService: UserService) {
+export class LoginComponent implements OnInit {
+    userForm : FormGroup;
+    constructor(private fb:FormBuilder, private userService:UserService, private router:Router) { }
 
+    ngOnInit():any{
+        if(this.userService.isLogin()) this.router.navigate(['dashboard', 'home']);
+        this.userForm = this.fb.group({
+            username:['', Validators.required],
+            password:['', Validators.required]
+        });
     }
 
-    user = { name: "", password: ""};
-    alertMessage = '';
-
-    onLoginClicked() {
-
-        this.userService.login(this.user).subscribe(
-            x => console.log(x),
-            err => {
-
-                console.log(err);
-                this.alertMessage = err.json().reason;
-            }
-        );
+    onLogin(){
+        this.userService.login(this.userForm.value).subscribe(
+            data => this.router.navigate(['dashboard', 'home']),
+            error => console.log(error)
+        )
     }
 }

@@ -32,3 +32,6 @@ On folder /data
  - mongoimport --db foodsports --collection users --drop < users.json
  - mongoimport --db foodsports --collection users --drop < users2.json
 
+##To start MongoDB locally:
+ -Linux: mongod
+ -Windows:  mongod --dbpath D:\Servers\data --port 27017
